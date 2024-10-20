@@ -64,4 +64,20 @@ export class AuthController {
       );
     }
   }
+  //logout
+  async logout(req: Request, res: Response): Promise<void> {
+    try {
+      res.clearCookie("Token", { path: "/" });
+      responseStatusMsg(res, 200, `cokkie already remove`);
+    } catch (error) {
+      responseStatusMsg(
+        res,
+        500,
+        "Failed to fetch products",
+        "error",
+        null,
+        error
+      );
+    }
+  }
 }

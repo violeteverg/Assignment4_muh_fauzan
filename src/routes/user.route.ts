@@ -6,11 +6,13 @@ const userRouter = Router();
 export interface IAuthContorller {
   register(req: Request, res: Response): Promise<void>;
   login(req: Request, res: Response): Promise<void>;
+  logout(req: Request, res: Response): Promise<void>;
 }
 
 const authController: IAuthContorller = new AuthController();
 
 userRouter.post("/register", authController.register);
 userRouter.post("/login", authController.login);
+userRouter.post("/logout", authController.logout);
 
 export default userRouter;

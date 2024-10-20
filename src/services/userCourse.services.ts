@@ -35,9 +35,11 @@ export class UserCourseService {
       where: { userId },
       orderBy: { id: "asc" },
       select: {
+        id: true,
         course: true,
       },
     });
+    console.log(course);
     return course;
   }
   //remove userCourse
